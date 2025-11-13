@@ -1,0 +1,248 @@
+/* ======================
+ External CSS: styles.css
+ ====================== */
+/* Universal selector */
+* {
+ box-sizing: border-box;
+}
+/* Type selectors */
+body {
+ font-family: 'Segoe UI', Arial, sans-serif;
+ line-height: 1.6;
+ background: url('../images/poster.jpg') no-repeat center center fixed;
+ background-size: cover;
+ color: #333;
+ margin: 0;
+ padding: 0;
+}
+header, nav, main, footer {
+ margin: 0;
+ padding: 0;
+}
+/* ID selector */
+#header {
+ text-align: center;
+ background: #05121fd9;
+ color: rgb(233, 192, 176);
+ padding: 20px;
+ font-family: 'Rock Salt', cursive;
+ letter-spacing: 4px;
+}
+
+.hdr{
+font-family: 'Rock Salt', cursive;
+letter-spacing: 10px;
+
+}
+
+/* Class selector */
+.highlight {
+ background-color: #f1c40f;
+ color: #2c3e50;
+ padding: 5px 10px;
+ border-radius: 4px;
+}
+/* Grouped selector */
+h1, h2, h3 {
+ letter-spacing: 1px;
+ text-align: center;
+}
+/* Descendant selector */
+nav ul li a {
+ color: #dfc1b3;
+ text-decoration: none;
+ font-weight: bold;
+ padding: 8px 15px;
+ transition: color 0.3s;
+}
+nav ul li a:hover, nav ul li a:focus {
+ color: #57e78c;
+}
+/* Box model and layout */
+nav {
+ background: rgba(29, 46, 62, 0.85);
+ padding: 10px 0;
+ text-align: center;
+ border-radius: 20px;
+ margin: 10px 10px;
+}
+nav:hover {
+ margin: 10px 500px;
+ /*transform: scale(1.07);*/
+ transition: margin 0.9s;
+}
+nav ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+nav ul li {
+ display: inline-block;
+ margin: 0 15px;
+}
+nav ul li:hover {
+ display: inline-block;
+ margin: 0 15px;
+ font-size: 15px;
+}
+main {
+ padding: 20px;
+ background-color: rgba(2, 19, 45, 0.524);
+ margin: 20px;
+ border-radius: 10px;
+ border: 2px solid #ddd;
+}
+/* Background demo */
+section#tickets {
+ background-color: rgba(22, 25, 34, 0.342);
+ padding: 10px;
+ margin: 15px 0;
+}
+/* Table styling */
+table {
+ width: 80%;
+ margin: 0 auto;
+ border-collapse: collapse;
+}
+th, td {
+ border: 1px solid #505052;
+ padding: 10px;
+}
+th {
+ background: #3e5164bd;
+ color: white;
+}
+tr:nth-child(even) {
+ background: rgba(189, 190, 194, 0.925);
+}
+/* Image styling */
+figure img {
+ margin-left: 650px;
+ width: 35%;
+ max-width: 500px;
+ border-radius: 10px;
+ border: 4px solid #f39c12;
+ transition: transform 0.4s;
+}
+figure img:hover {
+ transform: scale(1.05);
+}
+figcaption {
+ font-style: italic;
+ color: #555;
+ text-align: center;
+}
+/* Form styling */
+form {
+ width: 60%;
+ margin: 20px auto;
+ background-color: rgba(182, 183, 187, 0.938);
+ padding: 15px;
+ border-radius: 8px;
+ box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+form input, form button {
+ display: block;
+ width: 100%;
+ padding: 8px;
+ margin-bottom: 10px;
+ border-radius: 4px;
+ border: 1px solid #999bac;
+ font-size: 1em;
+}
+
+input {
+  background-color: #3c404b2f;
+}
+
+button {
+ background: #2c3e50;
+ color: white;
+ border: none;
+ cursor: pointer;
+ transition: background 0.3s;
+}
+
+.submit {
+  border-radius: 20px;
+  width :  100px;
+
+}
+
+.submit:hover {
+  /*margin: 10px 500px;*/
+  transition: width 1.0s;
+  width: 150px;
+}
+
+button:hover {
+ background: #000000;
+}
+/* Footer */
+footer {
+ text-align: center;
+ background: rgba(44,62,80,0.9);
+ color: #fff;
+ padding: 10px;
+}
+footer a {
+ color: #f39c12;
+ text-decoration: none;
+}
+/* Animations */
+@keyframes fadeInUp {
+ from { transform: translateY(20px); opacity: 0; }
+ to { transform: translateY(0); opacity: 1; }
+}
+ul li {
+ animation: fadeInUp 1s ease;
+}
+audio:hover {
+ transform: scale(1.1);
+ transition: transform 0.9s;
+ margin-top: 2px ;
+}
+video:hover {
+ transform: scale(1.07);
+ transition: transform 0.9s;
+ margin-top: 2px;
+ border-radius: 10px;
+}
+.dbc{
+  margin-left: 55px;
+}
+
+video {
+ margin-left: 35.8%;
+}
+audio {
+ margin-left: 43.5%;
+}
+
+table tr {
+  background-color: rgba(207, 207, 209, 0.932);
+}
+
+.tkt {
+  color: #000000;
+  font-size: 35px;
+}
+
+canvas {
+  margin-left: 700px;
+}
+.MD {
+  margin-left: 10Px;
+  font-size: 50px;
+  font-family:  Garamond , sans-serif ;
+}
+
+ /* Embedded styles: small, page-specific */
+ /* Demonstrates selectors: type, class, id, grouped, descendant */
+ h2, h3 { margin-top: 1.5rem; line-height: 1.2; }
+ /* child selector */
+ main > section { padding: 1rem 0; }
+ /* a one-off inline style will be used exactly once later */
+ /* accessibility: focus styles for keyboard users */
+ a:focus, button:focus, input:focus { outline: 3px solid #f39c12; outline-offset:
+2px; }

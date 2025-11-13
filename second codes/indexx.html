@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Museum Exhibit Poster — Complete (HTML5 + CSS + Media + APIs)</title>
+
+  <!-- 1) External CSS file (demonstration of association method #1) -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  
+
+  <!-- 2) Small embedded CSS block (association method #2) -->
+  <style>
+    /* Embedded styles: small, page-specific */
+    /* Demonstrates selectors: type, class, id, grouped, descendant */
+    h2, h3 { margin-top: 1.5rem; line-height: 1.2; }
+
+    /* child selector */
+    main > section { padding: 1rem 0; }
+
+    /* a one-off inline style will be used exactly once later */
+
+    /* accessibility: focus styles for keyboard users */
+    a:focus, button:focus, input:focus { outline: 3px solid #f39c12; outline-offset: 2px; }
+  </style>
+
+  <!-- EXACTLY ONE inline style will appear in the body (see the H1) -->
+</head>
+<body>
+  <!-- Semantic header -->
+  <header id="header">
+    <h1 class="hdr">EXHIBIT: ACIENT AFRICA</h1> <!-- inline style used once -->
+    <p class="dates"><marquee direction = "right" scrollamount="15">Dates: Oct–Nov</marquee></p>
+  </header>
+
+  <!-- Navigation -->
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#artifacts">Artifacts</a></li>
+      <li><a href="#tickets">Tickets</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="../frontend/index.html">Exhibit Manager</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Section: Featured artifacts -->
+    <section id="artifacts">
+      <h2>Featured Artifacts</h2>
+      <ul class="artifact-list">
+        <li class="artifact">Ancient Drum</li>
+        <li class="artifact">Traditional Mask</li>
+        <li class="artifact">Stone Tools</li>
+        <li class="artifact">Beaded Necklace</li>
+      </ul>
+
+      <!-- Tiny canvas visual (HTML5 API - optional) -->
+      <figure>
+        <canvas  id="mini-canvas" width="398" height="120" aria-label="Decorative colored band"></canvas>
+        <figcaption class="dbc">Decorative band (canvas)</figcaption>
+      </figure>
+    </section>
+
+    <!-- Section: Tickets table and form -->
+    <section id="tickets">
+      <h2 class="tkt">TICKETS</h2>
+
+      <table>
+        <caption class="sr-only">Ticket types and prices</caption>
+        <thead>
+          <tr>
+            <th>Ticket Type</th>
+            <th>Price</th>
+            <th>Age Limit</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Adult</td>
+            <td>$15</td>
+            <td>18+</td>
+            <td>Includes free guide</td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>$10</td>
+            <td>13–25</td>
+            <td>Valid ID required</td>
+          </tr>
+          <tr>
+            <td>Child</td>
+            <td>$5</td>
+            <td>5–12</td>
+            <td>Must be with guardian</td>
+          </tr>
+          <tr>
+            <td>Senior</td>
+            <td>$8</td>
+            <td>60+</td>
+            <td>Discounted entry</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 2) Form with HTML5 inputs (email, date, number) -->
+      <form id="subscribe-form" action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Book a guided tour / Subscribe</legend>
+
+          <label for="email">Email (contact)</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+          <label for="visit-date">Preferred visit date</label>
+          <input type="date" id="visit-date" name="date">
+
+          <label for="group-size">Group size</label>
+          <input type="number" id="group-size" name="group" min="1" max="20" value="1">
+
+          <button type="submit" class="submit">Submit</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Media section (video + audio) -->
+    <section id="media">
+      <h2 class="MD">MEDIA</h2>
+
+      <!-- 3) Video: two sources (.mp4 and .webm), poster, captions track -->
+      <figure>
+        <video controls width="480" poster="photo.jpg" aria-describedby="video-desc">
+          <!-- two sources (mp4 + webm) -->
+          <source src="group4.mp4" type="video/mp4">
+          <source src="intro.webm" type="video/webm">
+          <!-- captions track (bonus accessibility) -->
+          <track kind="captions" label="English captions" srclang="en" src="intro-captions.vtt">
+          Your browser does not support the video element.
+        </video>
+        <figcaption id="video-desc">15–45s self-recorded introduction to the exhibit.</figcaption>
+      </figure>
+
+      <!-- 3) Audio: controls with two sources (.mp3 + .ogg) and short text summary -->
+      <div class="audio">
+        <audio controls>
+          <source src="group4.mp4" type="audio/mpeg">
+          <source src="voiceover.ogg" type="audio/ogg">
+          Your browser does not support the audio element.
+        </audio>
+        <p class="audio-summary">Audio summary: A short 10–30s voice note introducing the main highlights of the exhibit.</p>
+      </div>
+    </section>
+
+    <!-- Geolocation demo (optional HTML5 API) -->
+    <section id="location">
+      <h2>Find us</h2>
+      <p>Click below to show your current coordinates (this uses the Geolocation API):</p>
+      <button id="loc-btn">Show my location</button>
+      <p id="coords" aria-live="polite">Coordinates will appear here.</p>
+    </section>
+
+    <!-- Contact / small map placeholder -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Questions? <a href="mailto:info@museum.example">Email us</a>.</p>
+
+      <figure>
+        <img src="poster.jpg" alt="Partial view of the exhibit poster showing patterns and colours" width="240">
+        <figcaption>Poster preview.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Museum — <a href="#header">Back to top</a></p>
+  </footer>
+
+  <!-- Small JS: draw on canvas and geolocation handling -->
+  <script>
+    // Canvas drawing (tiny visual) - HTML5 canvas API
+    (function() {
+      const c = document.getElementById('mini-canvas');
+      if (c && c.getContext) {
+        const ctx = c.getContext('2d');
+        // draw a filled rectangle and a circle
+        ctx.fillStyle = '#f39c12';
+        ctx.fillRect(0,0,c.width,30);
+        ctx.fillStyle = 'rgba(44,62,80,0.9)';
+        ctx.beginPath();
+        ctx.arc(200,70,30,0,Math.PI*2);
+        ctx.fill();
+      }
+    })();
+
+    // Geolocation demo
+    document.getElementById('loc-btn').addEventListener('click', function(){
+      const out = document.getElementById('coords');
+      if (!navigator.geolocation) {
+        out.textContent = 'Geolocation is not supported by your browser.';
+        return;
+      }
+      out.textContent = 'Locating...';
+      navigator.geolocation.getCurrentPosition(function(position) {
+        out.textContent = 'Latitude: ' + position.coords.latitude.toFixed(5) + ', Longitude: ' + position.coords.longitude.toFixed(5);
+      }, function(err) {
+        out.textContent = 'Unable to retrieve location: ' + (err.message || err.code);
+      });
+    });
+
+    // Basic form handling to demonstrate HTML5 validation (enhancement)
+    document.getElementById('subscribe-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const email = document.getElementById('email');
+      if (!email.checkValidity()) {
+        email.reportValidity();
+        return;
+      }
+      alert('Form submitted (demo) — thank you!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
